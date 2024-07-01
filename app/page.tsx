@@ -4,6 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import ConnectSupabaseSteps from "@/components/tutorial/ConnectSupabaseSteps";
 import SignUpUserSteps from "@/components/tutorial/SignUpUserSteps";
 import Header from "@/components/Header";
+import Calender from "@/components/Calender";
 
 export default async function Index() {
   const canInitSupabaseClient = () => {
@@ -28,6 +29,7 @@ export default async function Index() {
       </nav>
 
       <div>
+        <Calender />
       </div>
 
       <footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center text-center text-xs">
