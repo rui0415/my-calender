@@ -3,27 +3,41 @@
 }
 
 .board {
-    padding: 5%;
+    padding: 10%;
     display: flex;
     flex-direction: column;
 }
 
 .header {
-    display: flex;
-    gap: 60%;
-    flex-direction: row;
-    margin-bottom: 5%;
+    margin-bottom: 20%;
+    position: relative;
+    font-size: large;
 }
 
+.date {
+    position: absolute;
+    top: 30%;
+    left: 0%;  
+}
 
-.month {
-    font-size:xx-large;
+.button {
+    position: absolute;
+    top: 30%;
+    right: 0%;
+}
+
+.backToday {
+    border: 2px solid rgb(54, 130, 202);
+    padding-inline: 3%;
+    position: absolute;
+    top: 30%;
+    right: 30%;
 }
 
 .week {
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 3rem;
+    gap: 2rem;
     margin-bottom: 5%;
     font: bolder;
     text-align: center;
@@ -32,7 +46,7 @@
 .days {
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 3rem;
+    gap: 2rem;
     font: bolder;
     text-align: center;
 }
