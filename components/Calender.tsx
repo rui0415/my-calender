@@ -6,27 +6,8 @@ import style from "./style/calender.module.css"
 const day = (year: number, month: number) => new Date(year, month + 1, 0).getDate();
 const week = (year: number, month: number, day: number) => new Date(year, month, day).getDay();
 
-enum Week {
-    Sunday = "Sun",
-    Monday = "Mon",
-    Tuesday = "The",
-    Wednesday = "Wed",
-    Thursday = "Thu",
-    Friday = "Fri",
-    Saturday = "Sat",
-}
+const Week = ["Sun","Mon","The", "Wed","Thu","Fri","Sat"]
 
-const weekColorMap: { [key in Week]: string } = {
-    "Mon": "grey",
-    "The": "red",
-    "Wed": "cyan",
-    "Thu": "lime",
-    "Fri": "violet",
-    "Sat": "teal",
-    "Sun": "orange",
-};
-
-const weekDays: Week[] = [Week.Sunday, Week.Monday, Week.Tuesday, Week.Wednesday, Week.Thursday, Week.Friday, Week.Saturday];
 
 export default async function Calender() {
 
@@ -36,7 +17,13 @@ export default async function Calender() {
     const numDays = day(year, month); //その月の日数
     const firstDayOfWeek = week(year, month, 1); //最初の週
 
+    const weeks = [];
     const days = [];
+
+    for (let i = 0; i < 7; i++){
+        weeks.push(<div>{Week[i]}</div>)
+    }
+
     for (let i = 0; i < firstDayOfWeek; i++){
         days.push(<div key={`empty-${i}`} className="day empty"></div>)
     }
@@ -45,19 +32,27 @@ export default async function Calender() {
         const weekDayIndex = week(year, month, day);
         // const isToday = day === now.getDate() && month === now.getMonth() && year === now.getFullYear();
         const isToday = day === today.getDate();
-        days.push(<div key={`day-${day}`} className={style.day} style={{backgroundColor: isToday ? "blue" : ""}}>{day}</div>);
+        days.push(<div key={`day-${day}`} className={style.day} style={{backgroundColor: isToday ? "#05f" : ""}}>{day}</div>);
     }
 
     return (
         <div className={style.container}>
             <div className={style.board}>
 
+                <div className={style.header}>
+                    <div>
+                        <span className={style.month}>{month+1}月 </span>
+                        <span>{year}</span>
+                    </div>
+
+                    <div>
+                        <span>prev </span>
+                        <span>next</span>
+                    </div>
+                </div>
+
                 <div className={style.week}>
-                    {weekDays.map((week, i) => 
-                        <div key={`key-${i}`} style={{color: weekColorMap[week]}}>
-                            {week}
-                        </div>
-                    )}
+                    {weeks}
                 </div>
 
                 <div className={style.days}>
