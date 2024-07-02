@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import style from "./style/calender.module.css"
 
@@ -15,6 +15,8 @@ export default function Calender() {
     const today = new Date();
     const [year, setYear] = useState(today.getFullYear());
     const [month, setMonth] = useState(today.getMonth());
+    const [info, setInfo] = useState(false);
+    const [schedule, setSchedule] = useState(0);
     const numDays = day(year, month); //その月の日数
     const firstDayOfWeek = week(year, month, 1); //最初の週
 
@@ -32,7 +34,7 @@ export default function Calender() {
     for (let day = 1; day <= numDays; day++) {
         const weekDayIndex = week(year, month, day);
         const isToday = day === today.getDate() && month === today.getMonth() && year === today.getFullYear();
-        days.push(<div key={`day-${day}`} className={style.day} style={{color: isToday ? "yellow" : ""}}>{day}</div>);
+        days.push(<button key={`day-${day}`} className={style.day} style={{color: isToday ? "gold" : ""}} onClick={() => showInfo(day)}>{day}</button>);
     }
 
     const prevMonth = () => {
@@ -52,6 +54,11 @@ export default function Calender() {
     const backToday = () => {
         setYear(today.getFullYear());
         setMonth(today.getMonth());
+    };
+
+    const showInfo = (day:number) => {
+        setSchedule(day);
+        setInfo(true);
     };
 
     return (
@@ -74,6 +81,8 @@ export default function Calender() {
                     </button>
                 </div>
 
+                <hr></hr>
+
                 <div className={style.week}>
                     {weeks}
                 </div>
@@ -81,6 +90,16 @@ export default function Calender() {
                 <div className={style.days}>
                     {days}
                 </div>
+            </div>
+
+            <div>
+                {info && (
+                    <div className={style.info}>
+                        {year}/{month+1}/{schedule}
+                        <hr></hr>
+                        <button onClick={() => setInfo(false)}>back</button>
+                    </div>
+                )}
             </div>
         </div>
     )

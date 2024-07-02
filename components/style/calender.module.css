@@ -1,15 +1,17 @@
 .container {
     background-color:rgb(21, 21, 70);
+    width: 50vw;
+    position: relative;
 }
 
 .board {
-    padding: 10%;
+    padding: 5%;
     display: flex;
     flex-direction: column;
 }
 
 .header {
-    margin-bottom: 20%;
+    margin-bottom: 10%;
     position: relative;
     font-size: large;
 }
@@ -27,18 +29,22 @@
 }
 
 .backToday {
-    border: 2px solid rgb(54, 130, 202);
     padding-inline: 3%;
     position: absolute;
     top: 30%;
-    right: 30%;
+    right: 40%;
+    background-color: rgb(17, 53, 87);
 }
+
+.backToday:hover {
+    background-color: rgb(54, 130, 202);
+}
+
 
 .week {
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 2rem;
-    margin-bottom: 5%;
+    margin-bottom: 1%;
     font: bolder;
     text-align: center;
 }
@@ -46,12 +52,40 @@
 .days {
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 2rem;
     font: bolder;
     text-align: center;
 }
 
 .day {
- /* border-radius: 50%; */
- border-bottom: 1px solid white;
+ width: auto;
+ height: 10vh;
+ font-size:120%
+}
+
+.info {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    border: 2px outset black;
+    width: 40vw;
+    height: 50vh;
+    text-align: center;
+    background-color:rgb(38, 38, 95);
+    opacity: 0.9;
+    font-size: 150%;
+}
+
+@media (660px < height) {
+    .container {
+        width: 90vw;
+    }
+
+    .day {
+        height: 12vh
+    }
+
+    .info {
+        right: 5%;
+        width: 80vw;
+    }
 }
