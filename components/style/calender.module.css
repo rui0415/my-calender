@@ -5,7 +5,10 @@
 }
 
 .board {
-    padding: 5%;
+    padding-top: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 1%;
     display: flex;
     flex-direction: column;
 }
@@ -24,8 +27,29 @@
 
 .button {
     position: absolute;
-    top: 30%;
+    top: 50%;
     right: 0%;
+    padding-top: 1%;
+    padding-right: 10%; 
+}
+
+.btnLeft {
+    padding: 3px;
+    border-radius: 30%;
+    margin-right: 2rem;
+}
+
+.btnRight {
+    padding: 3px;
+    border-radius: 30%;
+}
+
+.btnLeft:hover {
+    background-color: rgb(54, 130, 202);
+}
+
+.btnRight:hover {
+    background-color: rgb(54, 130, 202);
 }
 
 .backToday {
@@ -53,13 +77,17 @@
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
     font: bolder;
-    text-align: center;
 }
 
 .day {
- width: auto;
- height: 10vh;
- font-size:120%
+    width: auto;
+    height: 10vh;
+    font-size:120%;
+    text-align: center;
+}
+
+.day:hover {
+    background-color: rgb(17, 53, 87);
 }
 
 .info {
