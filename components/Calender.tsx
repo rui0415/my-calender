@@ -9,7 +9,7 @@ const week = (year: number, month: number, day: number) => new Date(year, month,
 const Week = ["Sun","Mon","The", "Wed","Thu","Fri","Sat"]
 
 
-export default async function Calender() {
+export default function Calender() {
 
     const today = new Date();
     const [year, setYear] = useState(today.getFullYear());
@@ -32,7 +32,7 @@ export default async function Calender() {
         const weekDayIndex = week(year, month, day);
         // const isToday = day === now.getDate() && month === now.getMonth() && year === now.getFullYear();
         const isToday = day === today.getDate();
-        days.push(<div key={`day-${day}`} className={style.day} style={{backgroundColor: isToday ? "#05f" : ""}}>{day}</div>);
+        days.push(<div key={`day-${day}`} className={style.day} style={{color: isToday ? "yellow" : ""}}>{day}</div>);
     }
 
     return (

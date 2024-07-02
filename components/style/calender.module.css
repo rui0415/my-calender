@@ -1,6 +1,5 @@
 .container {
     background-color:rgb(21, 21, 70);
-    border-radius: 2%;
 }
 
 .board {
@@ -39,5 +38,6 @@
 }
 
 .day {
- border-radius: 50%;
+ /* border-radius: 50%; */
+ border-bottom: 1px solid white;
 }
