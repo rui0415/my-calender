@@ -1,0 +1,31 @@
+.container {
+    background-color:rgb(4, 4, 48);
+    border-radius: 5%;
+}
+
+.board {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.week {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 3rem;
+    margin-bottom: 5%;
+    font: bolder;
+    text-align: center;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 3rem;
+    font: bolder;
+    text-align: center;
+}
+
+.day {
+
+}

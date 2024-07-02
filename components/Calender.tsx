@@ -1,28 +1,29 @@
 "use client"
 
 import { useState } from "react";
+import style from "./style/calender.module.css"
 
 const day = (year: number, month: number) => new Date(year, month + 1, 0).getDate();
 const week = (year: number, month: number, day: number) => new Date(year, month, day).getDay();
 
 enum Week {
-    Sunday = "日",
-    Monday = "月",
-    Tuesday = "火",
-    Wednesday = "水",
-    Thursday = "木",
-    Friday = "金",
-    Saturday = "土",
+    Sunday = "Sun",
+    Monday = "Mon",
+    Tuesday = "The",
+    Wednesday = "Wed",
+    Thursday = "Thu",
+    Friday = "Fri",
+    Saturday = "Sat",
 }
 
 const weekColorMap: { [key in Week]: string } = {
-    "月": "grey",
-    "火": "red",
-    "水": "cyan",
-    "木": "lime",
-    "金": "violet",
-    "土": "teal",
-    "日": "orange",
+    "Mon": "grey",
+    "The": "red",
+    "Wed": "cyan",
+    "Thu": "lime",
+    "Fri": "violet",
+    "Sat": "teal",
+    "Sun": "orange",
 };
 
 const weekDays: Week[] = [Week.Sunday, Week.Monday, Week.Tuesday, Week.Wednesday, Week.Thursday, Week.Friday, Week.Saturday];
@@ -44,13 +45,22 @@ export default async function Calender() {
         const weekDayIndex = week(year, month, day);
         // const isToday = day === now.getDate() && month === now.getMonth() && year === now.getFullYear();
         const isToday = day === today.getDate();
-        days.push(<div key={`day-${day}`} style={{backgroundColor: isToday ? "blue" : ""}}>{day}</div>);
+        days.push(<div key={`day-${day}`} className={style.day} style={{backgroundColor: isToday ? "blue" : ""}}>{day}</div>);
     }
 
     return (
-        <div className="container">
-            <div className="bg-slate-800">
-                <div className="grid grid-cols-7 gap-20">
+        <div className={style.container}>
+            <div className={style.board}>
+
+                <div className={style.week}>
+                    {weekDays.map((week, i) => 
+                        <div key={`key-${i}`} style={{color: weekColorMap[week]}}>
+                            {week}
+                        </div>
+                    )}
+                </div>
+
+                <div className={style.days}>
                     {days}
                 </div>
             </div>
