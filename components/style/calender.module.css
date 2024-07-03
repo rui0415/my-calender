@@ -60,10 +60,6 @@
     background-color: rgb(17, 53, 87);
 }
 
-.backToday:hover {
-    background-color: rgb(54, 130, 202);
-}
-
 
 .week {
     display: grid;
@@ -99,8 +95,34 @@
     height: 50vh;
     text-align: center;
     background-color:rgb(38, 38, 95);
-    opacity: 0.9;
     font-size: 150%;
+    animation: popup 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes popup {
+    0% {
+        transform: translateY(10vh) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) scale(1.0);
+    }
+    80%, 100%{
+        opacity: 0.9;
+    }
+}
+
+.backButton {
+    padding-inline: 3%;
+    position: absolute;
+    bottom: 10%;
+    right:10%;
+    background-color: rgb(17, 53, 87);
+    border-radius: 10%;
+}
+
+.backButton:hover {
+    background-color: rgb(54, 130, 202);
 }
 
 @media (660px < height) {

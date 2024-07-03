@@ -97,7 +97,16 @@ export default function Calender() {
                     <div className={style.info}>
                         {year}/{month+1}/{schedule}
                         <hr></hr>
-                        <button onClick={() => setInfo(false)}>back</button>
+                        <div>
+                            <label>todo</label><br></br>
+                            <input type="text"></input>
+                            <hr></hr>
+
+                            <label>date</label><br></br>
+                            <input type="datetime-local"></input>
+                            <hr></hr>
+                        </div>
+                        <button className={style.backButton} onClick={() => setInfo(false)}>back</button>
                     </div>
                 )}
             </div>
