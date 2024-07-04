@@ -3,6 +3,7 @@
 import { SetStateAction, useState } from "react";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import style from "./style/calender.module.css"
+import { Divide } from "lucide-react";
 
 const day = (year: number, month: number) => new Date(year, month + 1, 0).getDate();
 const week = (year: number, month: number, day: number) => new Date(year, month, day).getDay();
@@ -98,13 +99,16 @@ export default function Calender() {
                     <div className={style.info}>
                         {year}/{month+1}/{schedule}
                         <hr></hr>
-                        <div>
+                        <div className={style.inputInfo}>
+                            <div>
                             <label>todo</label><br></br>
                             <input type="text" className={style.input}></input>
+                            </div>
                             <hr></hr>
-
+                            <div>
                             <label>date</label><br></br>
                             <input type="datetime-local" className={style.input}></input>
+                            </div>
                             <hr></hr>
                         </div>
                         <button className={style.backButton} onClick={() => setInfo(false)}>back</button>
