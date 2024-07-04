@@ -9,7 +9,6 @@ const week = (year: number, month: number, day: number) => new Date(year, month,
 
 const Week = ["Sun","Mon","The", "Wed","Thu","Fri","Sat"]
 
-
 export default function Calender() {
 
     const today = new Date();
@@ -84,7 +83,9 @@ export default function Calender() {
                 <hr></hr>
 
                 <div className={style.week}>
-                    {weeks}
+                    {weeks.map((week, i) => 
+                        <div key={`key-${i}`}>{week}</div>
+                    )}
                 </div>
 
                 <div className={style.days}>
@@ -99,11 +100,11 @@ export default function Calender() {
                         <hr></hr>
                         <div>
                             <label>todo</label><br></br>
-                            <input type="text"></input>
+                            <input type="text" className={style.input}></input>
                             <hr></hr>
 
                             <label>date</label><br></br>
-                            <input type="datetime-local"></input>
+                            <input type="datetime-local" className={style.input}></input>
                             <hr></hr>
                         </div>
                         <button className={style.backButton} onClick={() => setInfo(false)}>back</button>
