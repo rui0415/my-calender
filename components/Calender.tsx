@@ -77,7 +77,7 @@ export default function Calender() {
                     </div>
 
                     <button className={style.backToday} onClick={backToday}>
-                        {today.getDay()}
+                        {today.getDate()}
                     </button>
                 </div>
 
@@ -97,19 +97,35 @@ export default function Calender() {
             <div>
                 {info && (
                     <div className={style.info}>
-                        {year}/{month+1}/{schedule}
+                        <div>
+                            {year}/{month+1}/{schedule}
+                        </div>
+                        
                         <hr></hr>
-                        <div className={style.inputInfo}>
-                            <div>
-                            <label>todo</label><br></br>
-                            <input type="text" className={style.input}></input>
+
+                        <div>
+                            
+                            <div className={style.inputText}>
+                                <label>todo</label><br></br>
+                                <input type="text" className={style.input}></input>
                             </div>
+                            
                             <hr></hr>
+                            
                             <div>
-                            <label>date</label><br></br>
-                            <input type="datetime-local" className={style.input}></input>
+                                <label>start date</label><br></br>
+                                <input type="datetime-local" className={style.input}></input>
                             </div>
+                            
                             <hr></hr>
+
+                            <div>
+                                <label>end date</label><br></br>
+                                <input type="datetime-local" className={style.input}></input>
+                            </div>
+
+                            <hr></hr>
+
                         </div>
                         <button className={style.backButton} onClick={() => setInfo(false)}>back</button>
                     </div>

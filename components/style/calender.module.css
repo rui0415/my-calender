@@ -96,6 +96,7 @@
     text-align: center;
     background-color:rgb(38, 38, 95);
     font-size: 150%;
+
     animation: popup 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
@@ -125,15 +126,14 @@
     background-color: rgb(54, 130, 202);
 }
 
-/* 
+
 .inputInfo {
-    size: 150%;
-} */
+    height: 60%;
+}
 
 .input {
     background-color: rgb(17, 53, 87);
     width: 80%;
-
     margin-bottom: 10px;
 }
 
