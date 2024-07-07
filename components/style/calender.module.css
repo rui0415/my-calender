@@ -120,9 +120,20 @@
     }
 }
 
+.addButton {
+    padding-inline: 3%;
+    margin: 10%;
+    background-color: rgb(17, 53, 87);
+    border-radius: 10%;
+}
+
+.addButton:hover {
+    background-color: rgb(236, 57, 57);
+}
+
 .backButton {
     padding-inline: 3%;
-    margin-top: 10%;
+    margin: 10%;
     background-color: rgb(17, 53, 87);
     border-radius: 10%;
 }

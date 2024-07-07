@@ -106,21 +106,21 @@ export default function Calender() {
                         <div>
                             
                             <div>
-                                <label>todo</label><br></br>
+                                <label>event</label><br></br>
                                 <input type="text" className={style.input}></input>
                             </div>
                             
                             <hr></hr>
                             
                             <div>
-                                <label>start date</label><br></br>
+                                <label>start time</label><br></br>
                                 <input type="time" className={style.input}></input>
                             </div>
                             
                             <hr></hr>
 
                             <div>
-                                <label>end date</label><br></br>
+                                <label>end time</label><br></br>
                                 <input type="time" className={style.input}></input>
                             </div>
 
@@ -128,6 +128,7 @@ export default function Calender() {
 
                         </div>
 
+                        <button className={style.addButton} onClick={() => setInfo(false)}>add</button>
                         <button className={style.backButton} onClick={() => setInfo(false)}>back</button>
                     </div>
                 )}
