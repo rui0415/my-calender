@@ -95,9 +95,16 @@
     height: 50vh;
     text-align: center;
     background-color:rgb(38, 38, 95);
-    font-size: 150%;
-
+    font-size: 130%;
     animation: popup 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    overflow: scroll;
+}
+
+.input {
+    background-color: rgb(17, 53, 87);
+    width: 80%;
+    margin-bottom: 10px;
+    padding: 1%;
 }
 
 @keyframes popup {
@@ -115,26 +122,13 @@
 
 .backButton {
     padding-inline: 3%;
-    position: absolute;
-    bottom: 10%;
-    right:10%;
+    margin-top: 10%;
     background-color: rgb(17, 53, 87);
     border-radius: 10%;
 }
 
 .backButton:hover {
     background-color: rgb(54, 130, 202);
-}
-
-
-.inputInfo {
-    height: 60%;
-}
-
-.input {
-    background-color: rgb(17, 53, 87);
-    width: 80%;
-    margin-bottom: 10px;
 }
 
 @media (660px < height) {

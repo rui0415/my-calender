@@ -63,7 +63,7 @@ export default function Calender() {
 
     return (
         <div className={style.container}>
-            <div className={style.board}>
+            <div className={style.board} >
 
                 <div className={style.header}>
                     <div className={style.date}>
@@ -105,7 +105,7 @@ export default function Calender() {
 
                         <div>
                             
-                            <div className={style.inputText}>
+                            <div>
                                 <label>todo</label><br></br>
                                 <input type="text" className={style.input}></input>
                             </div>
@@ -114,19 +114,20 @@ export default function Calender() {
                             
                             <div>
                                 <label>start date</label><br></br>
-                                <input type="datetime-local" className={style.input}></input>
+                                <input type="time" className={style.input}></input>
                             </div>
                             
                             <hr></hr>
 
                             <div>
                                 <label>end date</label><br></br>
-                                <input type="datetime-local" className={style.input}></input>
+                                <input type="time" className={style.input}></input>
                             </div>
 
                             <hr></hr>
 
                         </div>
+
                         <button className={style.backButton} onClick={() => setInfo(false)}>back</button>
                     </div>
                 )}
