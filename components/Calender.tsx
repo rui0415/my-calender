@@ -34,7 +34,7 @@ export default function Calender() {
     for (let day = 1; day <= numDays; day++) {
         const weekDayIndex = week(year, month, day);
         const isToday = day === today.getDate() && month === today.getMonth() && year === today.getFullYear();
-        days.push(<div key={`day-${day}`} className={style.day} style={{color: isToday ? "gold" : ""}} onClick={() => showInfo(day)}>{day}</div>);
+        days.push(<div key={`day-${day}`} className={style.day} style={{color: isToday ? "gold" : ""}} onDoubleClick={() => showInfo(day)}>{day}</div>);
     }
 
     const prevMonth = () => {

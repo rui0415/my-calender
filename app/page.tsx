@@ -1,9 +1,10 @@
 import AuthButton from "../components/AuthButton";
 import { createClient } from "@/utils/supabase/server";
 import Calender from "@/components/Calender";
+import { redirect } from "next/navigation";
 import style from "./page.module.css"
 
-export default function Index() {
+export default async function Index() {
   const canInitSupabaseClient = () => {
     // This function is just for the interactive tutorial.
     // Feel free to remove it once you have Supabase connected.

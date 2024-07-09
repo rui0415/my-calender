@@ -1,21 +1,30 @@
-import { createClient } from "@/utils/supabase/server";
+"use client"
+
+import { createClient } from "@/utils/supabase/client";
+import { User } from "@supabase/supabase-js";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { signOut } from "@/app/login/actions/actions";
+import { useEffect, useState } from "react";
 
-export default async function AuthButton() {
-  const supabase = createClient();
+export default function AuthButton() {
+  const [user, setUser] = useState<User | null>(null);
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  useEffect(() => {
+    const fetchUser = async () => {
+      const supabase = createClient();
+      const { data } = await supabase.auth.getUser();
+      setUser(data.user);
+    };
+    fetchUser();
+  }, []);
 
-  const signOut = async () => {
-    "use server";
+  // const signOut = async () => {
+  //   "use server";
 
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    return redirect("/login");
-  };
+  //   const supabase = createClient();
+  //   await supabase.auth.signOut();
+  //   return redirect("/login");
+  // };
 
   return user ? (
     <div className="flex items-center gap-4">

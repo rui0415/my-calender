@@ -1,10 +1,6 @@
 "use client"
 
-import Link from "next/link";
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
-import { SubmitButton } from "./submit-button";
 import { Auth } from "@supabase/auth-ui-react";
 
 
@@ -28,7 +24,6 @@ export default function Login(){
               ]}
               // onlyThirdPartyProviders
               theme="dark"
-              
         />
     </div>
   )
