@@ -1,0 +1,33 @@
+.dayContainer {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 5px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.dayNumber {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.eventList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.eventItem {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.eventItem strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
