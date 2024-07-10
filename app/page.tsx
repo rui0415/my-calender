@@ -32,6 +32,8 @@ export default function Index() {
     fetchUser();
   }, []);
 
+
+
   return (
     <div className={style.container}>
       <nav className={style.nav}>
@@ -41,7 +43,7 @@ export default function Index() {
       </nav>
 
       <div>
-        <Calender />
+        <Calender user={user}/>
       </div>
     </div>
   );

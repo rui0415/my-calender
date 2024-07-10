@@ -1,10 +1,6 @@
-"use client"
-
-import { createClient } from "@/utils/supabase/client";
 import { User } from "@supabase/supabase-js";
 import Link from "next/link";
 import { signOut } from "@/app/login/actions/actions";
-import { useEffect, useState } from "react";
 
 export default function AuthButton(props: {user: User | null}) {
   return props.user ? (

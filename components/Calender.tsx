@@ -1,16 +1,17 @@
 "use client"
 
-import { SetStateAction, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import style from "./style/calender.module.css"
-import { Divide } from "lucide-react";
+import { User } from "@supabase/supabase-js";
+import { createClient } from "@/utils/supabase/client";
 
 const day = (year: number, month: number) => new Date(year, month + 1, 0).getDate();
 const week = (year: number, month: number, day: number) => new Date(year, month, day).getDay();
 
 const Week = ["Sun","Mon","The", "Wed","Thu","Fri","Sat"]
 
-export default function Calender() {
+export default async function Calender(props: {user: User | null}) {
 
     const today = new Date();
     const [year, setYear] = useState(today.getFullYear());
@@ -19,6 +20,11 @@ export default function Calender() {
     const [schedule, setSchedule] = useState(0);
     const numDays = day(year, month); //その月の日数
     const firstDayOfWeek = week(year, month, 1); //最初の週
+
+
+    if (props.user !== null){
+  
+    }
 
     const weeks = [];
     const days = [];
