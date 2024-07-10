@@ -1,13 +1,16 @@
-import AuthButton from "../components/AuthButton";
-import { createClient } from "@/utils/supabase/server";
-import Calender from "@/components/Calender";
-import { redirect } from "next/navigation";
-import style from "./page.module.css"
+"use client"
 
-export default async function Index() {
+import AuthButton from "../components/AuthButton";
+import { createClient } from "@/utils/supabase/client";
+import Calender from "@/components/Calender";
+import style from "./page.module.css"
+import { useEffect, useState } from "react";
+import { User } from "@supabase/supabase-js";
+
+export default function Index() {
   const canInitSupabaseClient = () => {
-    // This function is just for the interactive tutorial.
-    // Feel free to remove it once you have Supabase connected.
+
+
     try {
       createClient();
       return true;
@@ -18,11 +21,22 @@ export default async function Index() {
 
   const isSupabaseConnected = canInitSupabaseClient();
 
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const supabase = createClient();
+      const { data } = await supabase.auth.getUser();
+      setUser(data.user);
+    };
+    fetchUser();
+  }, []);
+
   return (
     <div className={style.container}>
       <nav className={style.nav}>
         <div className={style.header}>
-          {isSupabaseConnected && <AuthButton />}
+          {isSupabaseConnected && <AuthButton user={user}/>}
         </div>
       </nav>
 
