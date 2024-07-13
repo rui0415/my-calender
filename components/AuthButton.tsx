@@ -1,8 +1,8 @@
-import { User } from "@supabase/supabase-js";
-import Link from "next/link";
-import { signOut } from "@/app/login/actions/actions";
+import { User } from '@supabase/supabase-js';
+import Link from 'next/link';
+import { signOut } from '@/app/login/actions/actions';
 
-export default function AuthButton(props: {user: User | null}) {
+export default function AuthButton(props: { user: User | null }) {
   return props.user ? (
     <div className="flex items-center gap-4">
       Hey, {props.user.email}!
