@@ -73,10 +73,15 @@ export default function Calendar(props: { user: User | null }) {
 
     const isToday = today.getFullYear() === year && today.getMonth() === month && today.getDate() === day? true:false;
 
+    const date = {
+      day: day,
+      month: month,
+      year: year
+    }
     days.push(
       <Day
         key={`day-${day}`}
-        day={day}
+        day={date}
         isToday={isToday}
         events={eventsForDay}
       />
