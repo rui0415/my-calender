@@ -37,8 +37,8 @@
   top: 20%;
   right: 10%;
   border: 2px outset black;
-  width: 40vw;
-  height: 50vh;
+  /* width: 40vw;
+  height: 50vh; */
   text-align: center;
   background-color: rgb(38, 38, 95);
   font-size: 130%;

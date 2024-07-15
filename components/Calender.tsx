@@ -71,10 +71,13 @@ export default function Calendar(props: { user: User | null }) {
       );
     });
 
+    const isToday = today.getFullYear() === year && today.getMonth() === month && today.getDate() === day? true:false;
+
     days.push(
       <Day
         key={`day-${day}`}
         day={day}
+        isToday={isToday}
         events={eventsForDay}
       />
     );

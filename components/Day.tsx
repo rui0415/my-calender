@@ -7,7 +7,7 @@ type Event = {
   end_date: string;
 };
 
-export default function Day(props: { day: number; events: Event[] }) {
+export default function Day(props: { day: number; isToday: boolean, events: Event[] }) {
   const [info, setInfo] = useState(false);
   const [addEvent, setAddEvent] = useState(false);
   return (
@@ -16,7 +16,7 @@ export default function Day(props: { day: number; events: Event[] }) {
         className={styles.dayContainer}
         onClick={() => setInfo(info ? false : true)}
       >
-        <div className={styles.dayNumber}>{props.day}</div>
+        <div className={styles.dayNumber} style={{color:props.isToday?"yellow":""}}>{props.day}</div>
         <div>{props.events.length}</div>
       </div>
       <div>
@@ -62,6 +62,7 @@ export default function Day(props: { day: number; events: Event[] }) {
                 <input
                   type="text"
                   className={styles.input}
+                  required
                 />
               </div>
 
@@ -73,6 +74,7 @@ export default function Day(props: { day: number; events: Event[] }) {
                 <input
                   type="time"
                   className={styles.input}
+                  required
                 />
               </div>
 
@@ -84,6 +86,7 @@ export default function Day(props: { day: number; events: Event[] }) {
                 <input
                   type="time"
                   className={styles.input}
+                  required
                 />
               </div>
 
